@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: start
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@192.168.130.17:12345:XE
+    username: KH14_SDK
+    password: KH1234
+  profiles:
+    include: private
+  mvc:
+    static-path-pattern: /uploads/**
+  web:
+    resources:
+      static-locations: file:uploads/
+
+server: 
+  port: 80
+
+servlet:
+  multipate:
+    max-file-size: 100MiB
+    max-request-size: 100MiB
+ 
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    jdbc-type-for-null: VARCHAR
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.kh.start.board.model.vo ,com.kh.start.board.model.dto ,com.kh.start.comments.model.vo ,com.kh.start.comments.model.dto
+
+
+logging:
+  level:
+    org: 
+      apache: 
+        ibatis: DEBUG
+    java:
+      sql: DEBUG
+    jdbc:
+      sqlonly: DEBUG
+      resultset: DEBUG
+      audit: DEBUG
