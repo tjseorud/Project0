@@ -33,13 +33,11 @@ const Info = () => {
           <Input 
             type="text" 
             value={auth.memberId} 
-            required 
             readOnly 
           />
           <Input 
             type="text" 
             value={auth.memberName} 
-            required 
             readOnly 
           />
           {active ? <ChangePassword /> : <DeleteMember />}

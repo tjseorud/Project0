@@ -1,4 +1,4 @@
-import { BoardContent, BoardWriter, Container, Title, Button, ImageContainer, ImagePreview, Form, } from "../styles/Styles";
+import { BoardContent, BoardWriter, Container, Title, Button, ImageContainer, ImagePreview, Form, Label, Input } from "../styles/Styles";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
@@ -128,7 +128,7 @@ const BoardDetail = () => {
   return (
     <>
       <Container>
-        {board.boardWriter === auth.memberId ? (
+        { !(board.boardWriter === auth.memberId) ? (
           <>
             <Title>{board.boardTitle}</Title>
             <BoardWriter>작성자: {board.boardWriter}</BoardWriter>
@@ -150,6 +150,7 @@ const BoardDetail = () => {
               placeholder="제목을 입력하세요" 
               onChange={(e) => setBoardTitle(e.target.value)}
             />
+            <br/>
             <Label>내용</Label>
             <Input 
               type="text" 
@@ -157,6 +158,7 @@ const BoardDetail = () => {
               placeholder="내용을 입력하세요" 
               onChange={(e) => setBoardContent(e.target.value)}
             />
+            <br/>
             <Label>작성자</Label>
             <Input 
               type="text" 
@@ -164,6 +166,7 @@ const BoardDetail = () => {
               readOnly
               style={{ backgroundColor: "lightgray" }}
             />
+            <br/>
             <Label htmlFor="file">파일첨부</Label>
             <Input 
               type="file" 
@@ -171,9 +174,11 @@ const BoardDetail = () => {
               accept="image/*"
               onChange={handleFileChange}
             />
+            <br/>
             <ImageContainer>
               <ImagePreview src={file} alt="미리보기" />
             </ImageContainer>
+            <br/>
             <Form onSubmit={handleUpdate}>
               <Button style={{ background: "green" }}>수정하기</Button>
             </Form>

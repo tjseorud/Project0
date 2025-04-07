@@ -8,7 +8,6 @@ const BoardList = () => {
   const [boards, setBoards] = useState([]);
   const [page, setPage] = useState(0);
   const [hasmore, setHasmore] = useState(true);
-  const [file , setFile] = useState(null);
 
   useEffect(() => {
     axios

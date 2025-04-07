@@ -18,7 +18,7 @@ public interface BoardMapper {
 	
 	BoardDTO findById(Long boardNo);
 	
-	@Update("UPDATE TB_BOOT_BOARD SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}, BOARD_FILE_URL = #{boardFileUrl} WHERE BOARD_NO = #{boardNo}")
+	@Update("UPDATE TB_BOOT_BOARD SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}, BOARD_FILE_URL = #{boardFileUrl}, MODIFY_DATE = SYSDATE WHERE BOARD_NO = #{boardNo}")
 	void update(BoardDTO board);
 	
 	@Update("UPDATE FROM TB_BOOT_BOARD SET STATUS = 'N' WHERE BOARD_NO = #{boardNo}")

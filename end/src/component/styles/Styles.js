@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 1000px;
+  width: 800px;
   height: auto;
   min-height: ${(props) => (props.height ? props.height : "600px;")};
   margin: 35px auto;
